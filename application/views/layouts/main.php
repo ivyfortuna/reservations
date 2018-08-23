@@ -43,27 +43,15 @@
             <div class="navbar-collapse" id="main-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <?= anchor('#', 'Index', 'class="dropdown-toggle" data-toggle="dropdown"') ?>
-                        <?php
-                        if (isset($_SESSION['user']) && $_SESSION['user']['role']==1){?>
-                            <ul class="dropdown-menu">
-                                <li><?= anchor('user/index', 'List') ?></li>
-                                <li><?= anchor('#', 'Add', 'data-toggle="modal" data-target="#add_user_modal"') ?></li>
-                            </ul>
-                        </li>
+                        <?= anchor('order/index', 'Orders') ?>
+                    </li>
+                    <?php
+                    if (isset($_SESSION['user']) && $_SESSION['user']['role']==1){?>
                         <li class="dropdown">
-                            <?= anchor('#', 'Destination', 'class="dropdown-toggle" data-toggle="dropdown"') ?>
-                            <ul class="dropdown-menu">
-                                <li><?= anchor('destination/index', 'List') ?></li>
-                                <li><?= anchor('#', 'Add', 'data-toggle="modal" data-target="#add_destination_modal"') ?></li>
-                            </ul>
+                            <?= anchor('destination/index', 'Destination') ?>
                         </li>
-                        <li class="dropdown">
-                            <?= anchor('#', 'Orders', 'class="dropdown-toggle" data-toggle="dropdown"') ?>
-                            <ul class="dropdown-menu">
-                                <li><?= anchor('order/index', 'List') ?></li>
-                                <li><?= anchor('#', 'Add', 'data-toggle="modal" data-target="#add_order_modal"') ?></li>
-                            </ul>
+                        <li>
+                            <?= anchor('user/index', 'Users') ?>
                         </li>
                     <?php
                         }else{
