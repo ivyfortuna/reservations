@@ -1,4 +1,25 @@
+<div class="table">
 
+    <div class="pull-right">
+        <button data-toggle="modal" data-target="#add_order_modal" class="btn btn-success">Novo</button>
+    </div>
+
+    <form>
+        <div class="form-group">
+
+                <div class="col-xl-12 form-group">
+                    <label for="id_destination" class="col-md-4 control-label">Destination</label>
+
+                    <!-- Select with all the users.-->
+                    <select class="form-control" id="id_destination">
+                        <?php foreach($users as $u){ ?>
+                            <option value="<?=$u['id']?>"><?=$u['name']?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 
 <table class="table table-striped table-bordered">
     <tr>
@@ -18,3 +39,6 @@
     </tr>
 	<?php } ?>
 </table>
+
+</div>
+<?php echo isset($add_modal) ? $add_modal : '' ; ?>
