@@ -78,8 +78,6 @@ class User extends Base{
         }
         else
         {
-            //$data['_view'] = 'vecinos/add';
-           // $this->load->view('layouts/dashboard_admin',$data);
             echo 'nok';die;
         }
     }

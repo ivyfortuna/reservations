@@ -55,3 +55,61 @@ function enviar_form(id,modal) {
     });
 
 }
+
+$(document).ready(function() {
+    $("#add_order").click(function() {
+        enviar_form_order('#add_modal_form','#add_order_modal');
+    });
+});
+
+function refrescar_tabla_order(){
+
+    var url=window.location.origin+"/reservations/order";
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "text"
+    }).done(function (res) {
+
+
+        $('#table').load(url+"#table");
+
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        alert("AJAX call failed: " + textStatus + ", " + errorThrown);
+    });
+}
+
+
+function enviar_form_order(id,modal) {
+    // la id es la id del form por ejemplo #add
+    var url=window.location.origin+"/reservations/order/add";
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: $(id).serialize(),
+        dataType: "text"
+    }).done(function (res) {
+        if(res=='ok'){
+            $( modal ).modal('hide');
+            refrescar_tabla_order();
+
+        }else{
+            $( modal ).modal('hide');
+            alert("The order wasn´t created"+","+res);
+
+        }
+        // res es la respuesta
+
+        $( modal ).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        alert("AJAX call failed: " + textStatus + ", " + errorThrown +", "+url);
+    });
+
+}
+

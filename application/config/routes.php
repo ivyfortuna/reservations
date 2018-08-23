@@ -7,3 +7,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['user/add']='user/add';
+$route['order/add']='order/add';
