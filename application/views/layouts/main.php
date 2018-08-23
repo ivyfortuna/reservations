@@ -28,7 +28,7 @@
 	</head>
 
 	<body>
-
+    <div id="table">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- for mobile phone -->
@@ -74,11 +74,11 @@
             </div>
         </div>
     </nav>
-	
+
 	<?php	if(isset($_view) && $_view)
 	    $this->load->view($_view);
 	?>
-
+    </div>
 
 	<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/jquery/jquery.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>

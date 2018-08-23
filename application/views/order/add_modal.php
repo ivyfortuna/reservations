@@ -27,7 +27,7 @@
                         <label for="id_destination" class="col-md-4 control-label">Destination</label>
 
                     <!-- Select with all the destinations.-->
-                        <select class="form-control" id="id_destination">
+                        <select class="form-control" id="id_destination" name="id_destination">
                         <?php foreach($destination as $d){ ?>
                             <option value="<?=$d['id']?>"><?=$d['name']?></option>
                         <?php } ?>

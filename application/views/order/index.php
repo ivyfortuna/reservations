@@ -1,4 +1,4 @@
-<div class="table">
+
 
     <div class="pull-right">
         <button data-toggle="modal" data-target="#add_order_modal" class="btn btn-success">Novo</button>
@@ -40,5 +40,4 @@
 	<?php } ?>
 </table>
 
-</div>
 <?php echo isset($add_modal) ? $add_modal : '' ; ?>
