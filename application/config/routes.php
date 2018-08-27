@@ -8,3 +8,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['user/add']='user/add';
 $route['order/add']='order/add';
+
+$route['user']='user/index';
+$route['order']='order/index';

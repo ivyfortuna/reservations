@@ -16,7 +16,6 @@ class User extends Base{
      */
     function index($ajax=0)
     {
-
         $data['users'] = $this->User_model->get_all_users();
 
          if($ajax==0 ){

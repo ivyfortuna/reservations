@@ -21,7 +21,12 @@ class Order extends Base{
 
         $data['orders'] = $this->Order_model->get_all_orders();
 
+        if(isset($_GET)&& count($_GET) > 0) {
+            $data['orders'] = $this->Order_model->get_all_orders_user($_GET['id_user']);
+        }
+
         if($ajax==0 ){
+
             $info{'destination'}=$this->Destination_model->get_all_destinations();
             $data['_view'] = 'order/index';
             $data['users'] = $this->User_model->get_all_users();
@@ -84,7 +89,7 @@ class Order extends Base{
                 );
 
                 $this->Order_model->update_order($id,$params);            
-                redirect('order/index');
+                redirect('order');
             }
             else
             {
@@ -107,7 +112,7 @@ class Order extends Base{
         if(isset($order['id']))
         {
             $this->Order_model->delete_order($id);
-            redirect('order/index');
+            redirect('order');
         }
         else
             show_error('The order you are trying to delete does not exist.');
