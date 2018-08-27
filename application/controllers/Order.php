@@ -22,7 +22,7 @@ class Order extends Base{
         $data['orders'] = $this->Order_model->get_all_orders();
 
         if(isset($_GET)&& count($_GET) > 0) {
-            $data['orders'] = $this->Order_model->get_all_orders_user($_GET['user']);
+            $data['orders'] = $this->Order_model->get_all_orders_user($_GET['id_user']);
         }
 
         if($ajax==0 ){

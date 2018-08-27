@@ -11,7 +11,7 @@
                     <label for="id_destination" class="col-md-4 control-label">Destination</label>
 
                     <!-- Select with all the users.-->
-                    <select class="form-control" id="users" name="user">
+                    <select class="form-control" id="id_user" name="id_user">
                         <?php foreach($users as $u){ ?>
                             <option value="<?=$u['id']?>"><?=$u['name']?></option>
                         <?php } ?>
