@@ -16,6 +16,9 @@ class User extends Base{
      */
     function index($ajax=0)
     {
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         $data['users'] = $this->User_model->get_all_users();
 
          if($ajax==0 ){

@@ -16,6 +16,9 @@ class Destination extends Base{
      */
     function index($ajax=0)
     {
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         $data['destination'] = $this->Destination_model->get_all_destinations();
 
         if($ajax==0 ){
