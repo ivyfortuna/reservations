@@ -112,3 +112,64 @@ function enviar_form_order(id,modal) {
     });
 
 }
+
+// Destinations
+
+
+$(document).ready(function() {
+    $("#add_destination").click(function() {
+        enviar_form_destination('#add_modal_form','#add_destination_modal');
+    });
+});
+
+function refrescar_tabla_destination(){
+
+    var url=window.location.origin+"/reservations/destination";
+
+    $.ajax({
+        type: "GET",
+        url: url,
+        dataType: "text"
+    }).done(function (res) {
+
+
+        $('#table').load(url+"#table");
+
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        alert("AJAX call failed: " + textStatus + ", " + errorThrown);
+    });
+}
+
+
+function enviar_form_destination(id,modal) {
+    // la id es la id del form por ejemplo #add
+    var url=window.location.origin+"/reservations/destination/add";
+
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: $(id).serialize(),
+        dataType: "text"
+    }).done(function (res) {
+
+        if(res=='ok'){
+            $( modal ).modal('hide');
+            refrescar_tabla_destination();
+
+        }else{
+            $( modal ).modal('hide');
+            alert("The destination wasn´t created"+","+res);
+
+        }
+        // res es la respuesta
+
+        $( modal ).modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
+
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        alert("AJAX call failed: " + textStatus + ", " + errorThrown +", "+url);
+    });
+
+}

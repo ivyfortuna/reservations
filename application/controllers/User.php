@@ -61,6 +61,7 @@ class User extends Base{
             redirect('/');
         }
         if(isset($_POST) && count($_POST) > 0)
+        // check if the user already exists
         { $login=$this->User_model->get_user_login( $this->input->post('email'));
             if($login!=null){
                 echo 'This user already exists';die;
@@ -128,6 +129,12 @@ class User extends Base{
         }
         else
             show_error('The user you are trying to delete does not exist.');
+    }
+
+    function logout(){
+
+        $_SESSION['user']=null;
+        redirect('/');
     }
     
 }

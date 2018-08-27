@@ -43,8 +43,9 @@
             <div class="navbar-collapse" id="main-menu">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <?= anchor('order/index', 'Orders') ?>
+                        <?= anchor('order', 'Orders') ?>
                     </li>
+
                     <?php
                     if (isset($_SESSION['user']) && $_SESSION['user']['role']==1){?>
                         <li class="dropdown">
@@ -58,6 +59,9 @@
                             echo "</li>";
                         }
                     ?>
+                    <li class="dropdown">
+                        <?= anchor('logout', 'Logout') ?>
+                    </li>
                 </ul>
             </div>
         </div>

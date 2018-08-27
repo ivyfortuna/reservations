@@ -1,5 +1,5 @@
-<div  class="text-center">
-	<a href="<?php echo site_url('destination/add'); ?>" class="btn btn-success">Add</a> 
+<div class="text-center">
+    <button data-toggle="modal" data-target="#add_destination_modal" class="btn btn-success">Novo</button>
 </div><br>
 
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -9,7 +9,7 @@
             <th>Name</th>
             <th>Actions</th>
         </tr>
-        <?php foreach($destinations as $d){ ?>
+        <?php foreach($destination as $d){ ?>
         <tr>
             <td><?php echo $d['id']; ?></td>
             <td><?php echo $d['name']; ?></td>
@@ -21,3 +21,4 @@
         <?php } ?>
     </table>
 </div>
+<?php echo isset($add_modal) ? $add_modal : '' ; ?>

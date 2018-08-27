@@ -14,34 +14,49 @@ class Destination extends Base{
     /*
      * Listing of destinations
      */
-    function index()
+    function index($ajax=0)
     {
-        $data['destinations'] = $this->Destination_model->get_all_destinations();
-        
-        $data['_view'] = 'destination/index';
-        $this->load->view('layouts/main',$data);
-    }
+        $data['destination'] = $this->Destination_model->get_all_destinations();
 
+        if($ajax==0 ){
+
+            $data['_view'] = 'destination/index';
+            $data['add_modal']=$this->load->view('destination/add_modal',array(),true);
+            $this->load->view('layouts/main',$data);
+
+        }else{
+
+            echo   $this->load->view('destination/index',$data,true);
+        }
+    }
     /*
      * Adding a new destination
      */
     function add()
-    {   
-        if(isset($_POST) && count($_POST) > 0)     
-        {   
+    {
+        $login=null;
+        // print_r($_POST);die;
+        if(!isset($_SESSION['user'])){
+            redirect('/');
+        }
+        if(isset($_POST) && count($_POST) > 0)
+        // check if the destination exists
+        { $login=$this->Destination_model->get_destination_name( $this->input->post('name'));
+            if($login!=null){
+                echo 'This destination already exists';die;
+            }
             $params = array(
-				'name' => $this->input->post('name'),
+                'name' => $this->input->post('name'),
             );
-            
+
             $destination_id = $this->Destination_model->add_destination($params);
-            redirect('destination/index');
+            echo 'ok';die;
         }
         else
-        {            
-            $data['_view'] = 'destination/add';
-            $this->load->view('layouts/main',$data);
+        {
+            echo 'nok';die;
         }
-    }  
+    }
 
     /*
      * Editing a destination

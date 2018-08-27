@@ -18,6 +18,10 @@ class Destination_model extends CI_Model
     {
         return $this->db->get_where('destinations',array('id'=>$id))->row_array();
     }
+    function get_destination_name($name)
+    {
+        return $this->db->get_where('destinations',array('name'=>$name))->row_array();
+    }
         
     /*
      * Get all destinations
