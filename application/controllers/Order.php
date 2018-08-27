@@ -18,9 +18,6 @@ class Order extends Base{
      */
     function index($ajax=0)
     {
-        if($_SESSION['user']==null ){
-            redirect('/');
-        }
 
         $data['orders'] = $this->Order_model->get_all_orders();
 

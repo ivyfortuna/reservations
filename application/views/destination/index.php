@@ -3,7 +3,7 @@
 </div><br>
 
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered sortable">
         <tr>
             <th>ID</th>
             <th>Name</th>

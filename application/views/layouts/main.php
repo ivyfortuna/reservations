@@ -83,6 +83,7 @@
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/waves/waves.js"></script>
 
 <script src="<?=base_url();?>assets/themes/home/scripts/scripts.js"></script>
+<script src="<?=base_url();?>assets/themes/home/scripts/sortTable.js"></script>
 
 	</body>
 </html>

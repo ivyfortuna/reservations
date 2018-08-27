@@ -2,7 +2,7 @@
         <button data-toggle="modal" data-target="#add_user_modal" class="btn btn-success">Novo</button>
     </div><br>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-    <table class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered sortable">
         <tr>
             <th>ID</th>
             <th>Role</th>

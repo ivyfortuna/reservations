@@ -1,8 +1,8 @@
 
 
-    <div class="pull-right">
+    <div class="text-center">
         <button data-toggle="modal" data-target="#add_order_modal" class="btn btn-success">Novo</button>
-    </div>
+    </div><br>
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" >
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
     <form id="users" method="post">
@@ -23,41 +23,45 @@
     </form>
         </div>
     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-<table class="table table-striped table-bordered">
-    <tr>
-		<th>ID</th>
-		<th>Date</th>
-		<th>Reason</th>
-		<th>Destination</th>
-		<th>User</th>
-    </tr>
-	<?php foreach($orders as $o){
-	   if(isset($o['id_destination']))
-	       foreach($destination as $d){
-	           if($o['id_destination']==$d['id']){
-                   $des=$d['name'];
-               }
-           }
-        if(isset($o['id_user']))
-            foreach($users as $u){
-                if($o['id_user']==$u['id']){
-                    $user=$u['name'];
-                }
-            }
+        <table id="orderTable" class="table table-striped table-bordered sortable" role="grid" aria-describedby="orderTable_info">
+            <thead>
+                <tr role="">
+                    <th>ID</th>
+                    <th>Date</th>
+                    <th>Reason</th>
+                    <th>Destination</th>
+                    <th>User</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach($orders as $o){
+               if(isset($o['id_destination']))
+                   foreach($destination as $d){
+                       if($o['id_destination']==$d['id']){
+                           $des=$d['name'];
+                       }
+                   }
+                if(isset($o['id_user']))
+                    foreach($users as $u){
+                        if($o['id_user']==$u['id']){
+                            $user=$u['name'];
+                        }
+                    }
 
-	    ?>
+                ?>
 
-    <tr>
-		<td><?php echo $o['id']; ?></td>
-		<td><?php echo $o['date']; ?></td>
-		<td><?php echo $o['reason']; ?></td>
-		<td><?php echo $des; ?></td>
-		<td><?php echo $user; ?></td>
-    </tr>
-	<?php } ?>
-</table>
-        </div>
+            <tr>
+                <td><?php echo $o['id']; ?></td>
+                <td><?php echo $o['date']; ?></td>
+                <td><?php echo $o['reason']; ?></td>
+                <td><?php echo $des; ?></td>
+                <td><?php echo $user; ?></td>
+            </tr>
+            <?php } ?>
+            </tbody>
+        </table>
     </div>
+</div>
 
 
 <?php echo isset($add_modal) ? $add_modal : '' ; ?>
