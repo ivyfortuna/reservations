@@ -27,13 +27,12 @@
                         <label for="password" class="col-md-4 control-label">Password</label>
 
                             <input type="text" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
-
                     </div>
                     <div class="col-xl-12 form-group">
                         <label for="role" class="col-md-4 control-label">Role</label>
 
-                            <input type="radio" name="role" value="1" class="form-control" id="yes" />
-                             <input type="radio" name="role" value="0" class="form-control" id="no" />
+                        <input type="radio" name="role" value="1" id="yes" />Administrator</br>
+                        <input type="radio" name="role" value="0" id="no" />User</br>
 
                     </div>
 
