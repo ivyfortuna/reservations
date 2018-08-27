@@ -29,6 +29,7 @@ class Order extends Base{
 
             $info{'destination'}=$this->Destination_model->get_all_destinations();
             $data['_view'] = 'order/index';
+            $data{'destination'}=$this->Destination_model->get_all_destinations();
             $data['users'] = $this->User_model->get_all_users();
             $data['add_modal']=$this->load->view('order/add_modal',$info,true);
             $this->load->view('layouts/main',$data);
