@@ -48,10 +48,10 @@
                     <?php
                     if (isset($_SESSION['user']) && $_SESSION['user']['role']==1){?>
                         <li class="dropdown">
-                            <?= anchor('destination/index', 'Destination') ?>
+                            <?= anchor('destination', 'Destination') ?>
                         </li>
                         <li>
-                            <?= anchor('user/index', 'Users') ?>
+                            <?= anchor('user', 'Users') ?>
                         </li>
                     <?php
                         }else{

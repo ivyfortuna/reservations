@@ -27,6 +27,12 @@ class Order_model extends CI_Model
         $this->db->order_by('id', 'desc');
         return $this->db->get('orders')->result_array();
     }
+
+    function get_all_orders_user($user)
+    {
+        $this->db->order_by('id', 'desc');
+        return $this->db->get_where('orders', array('id_user' => $user))->result_array();
+    }
         
     /*
      * function to add new order
