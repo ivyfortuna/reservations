@@ -21,8 +21,8 @@ class Order extends Base{
 
         $data['orders'] = $this->Order_model->get_all_orders();
 
-        if(isset($_GET)&& count($_GET) > 0) {
-            $data['orders'] = $this->Order_model->get_all_orders_user($_GET['id_user']);
+        if(isset($_POST)&& count($_POST) > 0) {
+            $data['orders'] = $this->Order_model->get_all_orders_user($_POST['id_user']);
         }
 
         if($ajax==0 ){
@@ -35,7 +35,7 @@ class Order extends Base{
 
         }else{
 
-            echo   $this->load->view('order/index',$data,true);
+            echo   $this->load->view('order',$data,true);
         }
     }
 
