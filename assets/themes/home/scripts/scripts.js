@@ -2,7 +2,13 @@ $(document).ready(function() {
     $("#add_user").click(function() {
         enviar_form('#add_modal_form','#add_user_modal');
     });
+    $("#enviar").click(function () {
+        history.pushState({}, null, window.location.origin+"/reservations/order");
+    })
 });
+
+
+
 
 
 function refrescar_tabla(){

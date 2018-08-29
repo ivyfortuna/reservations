@@ -39,6 +39,7 @@ class Order_model extends CI_Model
         $query = $this->db->select('*')
             ->from('orders')
             ->limit($limit,$offset)
+            ->order_by('id','desc')
             ->get();
 
         return $query->result_array();
@@ -57,6 +58,7 @@ class Order_model extends CI_Model
             ->from('orders')
             ->where('id_user',$user)
             ->limit($limit,$offset)
+            ->order_by('id','desc')
             ->get();
 
         return $query->result_array();
