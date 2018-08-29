@@ -9,10 +9,11 @@
         <div class="form-group">
 
                 <div class="col-xl-12 form-group">
-                    <label for="id_destination" class="col-md-4 control-label">Destination</label>
+                    <label for="id_destination" class="col-md-4 control-label">Agents</label>
 
                     <!-- Select with all the users.-->
                     <select class="form-control" id="id_user" name="id_user">
+                        <option value="0">All</option>
                         <?php foreach($users as $u){ ?>
                             <option value="<?=$u['id']?>"><?=$u['name']?></option>
                         <?php } ?>
