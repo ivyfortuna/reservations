@@ -19,7 +19,7 @@
                     </select>
                 </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button id='enviar' type="submit" class="btn btn-primary">Submit</button>
     </form>
         </div>
     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
@@ -57,9 +57,12 @@
                 <td><?php echo $des; ?></td>
                 <td><?php echo $user; ?></td>
             </tr>
-            <?php } ?>
+            <?php  } ?>
             </tbody>
         </table>
+
+        <?=$this->pagination->create_links();?>
+
     </div>
 </div>
 

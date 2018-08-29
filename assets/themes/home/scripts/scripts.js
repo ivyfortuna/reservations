@@ -4,6 +4,7 @@ $(document).ready(function() {
     });
 });
 
+
 function refrescar_tabla(){
    
    var url=window.location.origin+"/reservations/user";
@@ -73,7 +74,7 @@ function refrescar_tabla_order(){
     }).done(function (res) {
 
 
-        $('#table').load(url+"#table");
+        $('#tabla').html(res);
 
 
     }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -173,3 +174,5 @@ function enviar_form_destination(id,modal) {
     });
 
 }
+
+

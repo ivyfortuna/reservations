@@ -58,6 +58,7 @@ class User extends Base{
 */
     function add()
     {
+
         $login=null;
        // print_r($_POST);die;
         if(!isset($_SESSION['user'])){
@@ -89,7 +90,10 @@ class User extends Base{
      * Editing a user
      */
     function edit($id)
-    {   
+    {
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         // check if the user exists before trying to edit it
         $data['user'] = $this->User_model->get_user($id);
         
@@ -122,6 +126,10 @@ class User extends Base{
      */
     function remove($id)
     {
+
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         $user = $this->User_model->get_user($id);
 
         // check if the user exists before trying to delete it
@@ -136,6 +144,9 @@ class User extends Base{
 
     function logout(){
 
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         $_SESSION['user']=null;
         redirect('/');
     }
