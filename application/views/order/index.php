@@ -23,7 +23,7 @@
     </form>
         </div>
     <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-        <table id="orderTable" class="table table-striped table-bordered sortable" role="grid" aria-describedby="orderTable_info">
+        <table class="table table-striped table-bordered sortable" role="grid" aria-describedby="orderTable_info">
             <thead>
                 <tr role="">
                     <th>ID</th>
@@ -62,6 +62,4 @@
         </table>
     </div>
 </div>
-
-
 <?php echo isset($add_modal) ? $add_modal : '' ; ?>

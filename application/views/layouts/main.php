@@ -72,6 +72,8 @@
 	?>
     </div>
 
+
+
 	<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/jquery/jquery.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/bootstrap/bootstrap.js"></script>

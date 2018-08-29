@@ -22,6 +22,7 @@ class Order extends Base{
         $data['orders'] = $this->Order_model->get_all_orders();
 
         if(isset($_POST)&& count($_POST) > 0) {
+
             $data['orders'] = $this->Order_model->get_all_orders_user($_POST['id_user']);
         }
 

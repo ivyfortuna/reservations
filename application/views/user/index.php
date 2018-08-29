@@ -26,4 +26,5 @@
         <?php } ?>
     </table>
 </div>
+
 <?php echo isset($add_modal) ? $add_modal : '' ; ?>
