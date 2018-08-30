@@ -8,13 +8,13 @@
                 <h4 class="modal-title" id="exampleFormModalLabel">Add new order</h4>
             </div>
             <div class="modal-body">
-<p>Id <?=$_SESSION['user']['id']?></p>
+
                 <div class="row">
 
                     <div class="col-xl-12 form-group">
                         <label for="date" class="col-md-4 control-label">Date</label>
 
-                            <input type="date" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control" id="date" />
+                            <input type="datetime-local" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control" id="date" />
 
                     </div>
                     <div class="col-xl-12 form-group">
@@ -31,6 +31,15 @@
                         <?php foreach($destination as $d){ ?>
                             <option value="<?=$d['id']?>"><?=$d['name']?></option>
                         <?php } ?>
+                        </select>
+                    </div>
+                    <div class="col-xl-12 form-group">
+
+                        <label for="id_pickup_destination" class="col-md-4 control-label">Pick Up</label>
+                        <select class="form-control" id="id_pickup_destination" name="id_pickup_destination">
+                            <?php foreach($destination as $d){ ?>
+                                <option value="<?=$d['id']?>"><?=$d['name']?></option>
+                            <?php } ?>
                         </select>
                     </div>
 

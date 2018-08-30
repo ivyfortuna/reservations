@@ -103,7 +103,7 @@ class User extends Base{
             {   
                 $params = array(
 					'role' => $this->input->post('role'),
-					'password' => $this->input->post('password'),
+					'password' => password_hash($this->input->post('password'),PASSWORD_BCRYPT),
 					'name' => $this->input->post('name'),
 					'email' => $this->input->post('email'),
                 );

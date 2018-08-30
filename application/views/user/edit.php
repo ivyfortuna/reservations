@@ -9,7 +9,7 @@
 	<div class="form-group">
 		<label for="password" class="col-md-4 control-label">Password</label>
 		<div class="col-md-8">
-			<input type="text" name="password" value="<?php echo ($this->input->post('password') ? $this->input->post('password') : $user['password']); ?>" class="form-control" id="password" />
+			<input type="text" name="password" value="" class="form-control" id="password" />
 		</div>
 	</div>
 	<div class="form-group">

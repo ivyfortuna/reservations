@@ -2,7 +2,11 @@ $(document).ready(function() {
     $("#add_user").click(function() {
         enviar_form('#add_modal_form','#add_user_modal');
     });
+    $("#enviar").click(function () {
+        history.pushState({}, null, window.location.origin+"/reservations/order");
+    })
 });
+
 
 
 function refrescar_tabla(){
@@ -74,7 +78,7 @@ function refrescar_tabla_order(){
     }).done(function (res) {
 
 
-        $('#tabla').html(res);
+        $('#table').html(res);
 
 
     }).fail(function (jqXHR, textStatus, errorThrown) {

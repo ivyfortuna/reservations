@@ -2,9 +2,21 @@
 
     <div class="text-center">
         <button data-toggle="modal" data-target="#add_order_modal" class="btn btn-success">Novo</button>
+
+        <h2><?php if($_SESSION['user_table']==0){
+                echo 'All';
+            }else {
+                foreach ($users as $u) {
+                    if($_SESSION['user_table']==$u['id']){
+                        echo $u['name'];}
+                }
+            }?>
+        </h2>
     </div><br>
+
     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" >
         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+
     <form id="users" method="post">
         <div class="form-group">
 
@@ -31,6 +43,7 @@
                     <th>Date</th>
                     <th>Reason</th>
                     <th>Destination</th>
+                    <th>Pick up</th>
                     <th>User</th>
                 </tr>
             </thead>
@@ -40,6 +53,9 @@
                    foreach($destination as $d){
                        if($o['id_destination']==$d['id']){
                            $des=$d['name'];
+                       }
+                       if($o['id_pickup_destination']==$d['id']) {
+                           $pic = $d['name'];
                        }
                    }
                 if(isset($o['id_user']))
@@ -56,6 +72,7 @@
                 <td><?php echo $o['date']; ?></td>
                 <td><?php echo $o['reason']; ?></td>
                 <td><?php echo $des; ?></td>
+                <td><?php echo $pic; ?></td>
                 <td><?php echo $user; ?></td>
             </tr>
             <?php  } ?>
