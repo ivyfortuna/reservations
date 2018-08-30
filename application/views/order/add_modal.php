@@ -11,19 +11,25 @@
 
                 <div class="row">
 
-                    <div class="col-xl-12 form-group">
+                    <div class="col-xl-12 col-md-6  form-group">
                         <label for="date" class="col-md-4 control-label">Date</label>
 
-                            <input type="datetime-local" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control" id="date" />
+                            <input  type="date" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control" id="date" pattern=".{1,}" />
 
                     </div>
-                    <div class="col-xl-12 form-group">
+                    <div class="col-xl-12 col-md-6 form-group">
+                        <label for="time" class="col-md-4 control-label">Hour</label>
+
+                        <input  type="time" name="time" value="<?php echo $this->input->post('time'); ?>" class="form-control" id="time" pattern=".{1,}"  />
+
+                    </div>
+                    <div class="col-xl-12 col-md-12 form-group">
                         <label for=reason" class="col-md-4 control-label">Reason</label>
 
                             <input type="text" name="reason" value="<?php echo $this->input->post('reason'); ?>" class="form-control" id="reason" />
 
                     </div>
-                    <div class="col-xl-12 form-group">
+                    <div class="col-xl-12 col-md-12 form-group">
                         <label for="id_destination" class="col-md-4 control-label">Destination</label>
 
                     <!-- Select with all the destinations.-->
@@ -33,7 +39,7 @@
                         <?php } ?>
                         </select>
                     </div>
-                    <div class="col-xl-12 form-group">
+                    <div class="col-xl-12 col-md-12 form-group">
 
                         <label for="id_pickup_destination" class="col-md-4 control-label">Pick Up</label>
                         <select class="form-control" id="id_pickup_destination" name="id_pickup_destination">
@@ -43,8 +49,8 @@
                         </select>
                     </div>
 
-                    <div class="col-md-12 float-right">
-                        <button id="add_order" class="btn btn-icon btn-block btn-primary btn-outline mt-3"  type="button">Send</button>
+                    <div class="col-md-12  float-right">
+                        <button id="add_order"  class="btn btn-icon btn-block btn-primary btn-outline mt-3"  type="button">Send</button>
                     </div>
                 </div>
             </div>

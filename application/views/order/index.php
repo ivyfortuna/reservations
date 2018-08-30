@@ -69,7 +69,7 @@
 
             <tr>
                 <td><?php echo $o['id']; ?></td>
-                <td><?php echo $o['date']; ?></td>
+                <td><?php echo $o['date']." ".$o['time']; ?></td>
                 <td><?php echo $o['reason']; ?></td>
                 <td><?php echo $des; ?></td>
                 <td><?php echo $pic; ?></td>

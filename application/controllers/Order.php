@@ -103,11 +103,13 @@ class Order extends Base{
         {
             $params = array(
                 'date' => $this->input->post('date'),
+                'time' => $this->input->post('time'),
                 'reason' => $this->input->post('reason'),
                 'id_destination' =>$this->input->post('id_destination'),
                 'id_pickup_destination' =>$this->input->post('id_pickup_destination'),
                 'id_user' => $_SESSION['user']['id'],
             );
+
 
             $order_id = $this->Order_model->add_order($params);
 

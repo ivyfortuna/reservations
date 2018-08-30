@@ -17,6 +17,7 @@ class Base extends CI_Controller{
         $this->load->library('pagination');
         $this->load->library('upload');
         $this->load->library('email');
+        $this->load->library('form_validation');
 
 
     }
