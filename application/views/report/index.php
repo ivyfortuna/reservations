@@ -1,69 +1,63 @@
-
-
-    <div class="text-center">
-        <button data-toggle="modal" data-target="#add_order_modal" class="btn btn-success">Novo</button>
-    </div><br>
-    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12" >
-        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
-    <form id="users" method="post">
-        <div class="form-group">
-
-                <div class="col-xl-12 form-group">
-                    <label for="id_destination" class="col-md-4 control-label">Agents</label>
-
-                    <!-- Select with all the users.-->
-                    <select class="form-control" id="id_user" name="id_user">
-                        <option value="0">All</option>
-                        <?php foreach($users as $u){ ?>
-                            <option value="<?=$u['id']?>"><?=$u['name']?></option>
-                        <?php } ?>
-                    </select>
-                </div>
-        </div>
-        <button id='enviar' type="submit" class="btn btn-primary">Submit</button>
+<div class="text-center">
+    <form id="month" method="post">
+        <input type="month"  name="month">
+        <button id='enviar_report' type="submit" class="btn btn-primary">Submit</button>
+        <button id='crear_pdf' type="submit" class="btn btn-primary">Create PDF</button>
     </form>
-        </div>
-    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-        <table class="table table-striped table-bordered sortable" role="grid" aria-describedby="orderTable_info">
-            <thead>
-                <tr role="">
-                    <th>ID</th>
-                    <th>Date</th>
-                    <th>Reason</th>
-                    <th>Destination</th>
-                    <th>User</th>
-                </tr>
-            </thead>
-            <tbody>
-            <?php foreach($orders as $o){
-               if(isset($o['id_destination']))
-                   foreach($destination as $d){
-                       if($o['id_destination']==$d['id']){
-                           $des=$d['name'];
-                       }
-                   }
-                if(isset($o['id_user']))
-                    foreach($users as $u){
-                        if($o['id_user']==$u['id']){
-                            $user=$u['name'];
-                        }
+</div></br>
+<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
+<div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
+
+        <?php
+        $last_date=0;
+        $i=0;
+        foreach($reports as $r){
+            if(isset($r['id_destination']))
+                foreach($destination as $d){
+                    if($r['id_destination']==$d['id']){
+                        $des=$d['name'];
                     }
+                }
+            if(isset($r['id_user']))
+                foreach($users as $u){
+                    if($r['id_user']==$u['id']){
+                        $user=$u['name'];
+                    }
+                }
 
-                ?>
+                if($last_date!=$r['date']){
+                    $i++;
+            ?>
+            <h2><?php echo substr($r['date'], 0,10); ?></h2>
+            <table class="table table-striped table-bordered sortable" role="grid" aria-describedby="orderTable_info">
+                <thead>
+                    <tr role="">
+                        <th>Destination</th>
+                        <th>User</th>
+                        <th>Reason</th>
+                    </tr>
+                </thead>
+                <tbody id=<?=$i?>>
+                    <tr>
+                    <td><?php echo $des; ?></td>
+                    <td><?php echo $user; ?></td>
+                    <td><?php echo $r['reason']; ?></td>
+                    </tr>
+                </tbody>
+            </table>
+        <?php }else{ ?>
+            <script>
+                document.getElementById(<?= $i ?>).innerHTML += "<tr>\n" +
+                    "                    <td><?php echo $des; ?></td>\n" +
+                    "                    <td><?php echo $user; ?></td>\n" +
+                    "                    <td><?php echo $r['reason']; ?></td>\n" +
+                    "                    </tr>"
+            </script>
+        <?php } ?>
 
-            <tr>
-                <td><?php echo $o['id']; ?></td>
-                <td><?php echo $o['date']; ?></td>
-                <td><?php echo $o['reason']; ?></td>
-                <td><?php echo $des; ?></td>
-                <td><?php echo $user; ?></td>
-            </tr>
-            <?php  } ?>
-            </tbody>
-        </table>
+        <?php
+        $last_date=$r['date'];
+        }
+        ?>
 
-        <?=$this->pagination->create_links();?>
-
-    </div>
 </div>
-<?php echo isset($add_modal) ? $add_modal : '' ; ?>

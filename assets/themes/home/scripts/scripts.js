@@ -5,6 +5,12 @@ $(document).ready(function() {
     $("#enviar").click(function () {
         history.pushState({}, null, window.location.origin+"/reservations/order");
     })
+    $("#enviar_report").click(function () {
+        history.pushState({}, null, window.location.origin+"/reservations/report");
+    })
+    $("#crear_pdf").click(function () {
+        history.pushState({}, null, window.location.origin+"/reservations/pdf");
+    })
 });
 
 

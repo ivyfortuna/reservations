@@ -54,6 +54,9 @@
                         <li>
                             <?= anchor('user', 'Users') ?>
                         </li>
+                        <li>
+                            <?= anchor('report', 'Report') ?>
+                        </li>
                     <?php
                         }else{
                             echo "</li>";
