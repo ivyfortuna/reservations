@@ -52,13 +52,30 @@ class Report extends Base
      */
     function pdf()
     {
-        $month=0;
+        $month=date('Y-m');
         if((isset($_POST)&& count($_POST) > 0 )) {
-            $month = $_POST['month'];
+            if(isset($_POST['month'])) {
+                $month = $_POST['month'];
+            }
             $data['reports'] = $this->Report_model->get_month_orders($month);
-            $this->pdf->load_view('report/index, $data');
-            $this->pdf->render();
-            $this->pdf->stream("reports.pdf");
+            $data{'destination'}=$this->Destination_model->get_all_destinations();
+            $data['users'] = $this->User_model->get_all_users();
+
+            $this->load->view('report/index', $data);
+
+            $html=$this->load->view('report/pdf',$data, true); //load the pdf.php by passing our data and get all data in $html varriable.
+
+            //actually, you can pass mPDF parameter on this load() function
+            $pdf = $this->m_pdf->load();
+            //generate the PDF!
+            $stylesheet = '<style>'.file_get_contents('assets/css/bootstrap.min.css').'</style>';
+            // apply external css
+            $pdf->WriteHTML($stylesheet,1);
+            $pdf->WriteHTML($html,2);
+            //offer it to user via browser download! (The PDF won't be saved on your server HDD)
+            $pdf->Output();
+            exit;
+
         }
         else{
             redirect('report');

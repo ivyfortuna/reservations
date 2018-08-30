@@ -16,4 +16,4 @@ $route['user']='user/index';
 $route['logout']='user/logout';
 $route['order']='order/index';
 $route['report']='report/index';
-$route['report/pdf']='report/pdf';
+$route['pdf']='report/pdf';
