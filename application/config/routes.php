@@ -10,6 +10,7 @@ $route['user/add']='user/add';
 $route['order/add']='order/add';
 $route['destination/add']='destination/add';
 
+$route['order/(:num)']='order/index/$1';
 
 $route['user']='user/index';
 $route['logout']='user/logout';

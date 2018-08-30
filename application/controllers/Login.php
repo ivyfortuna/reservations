@@ -16,7 +16,7 @@ class Login extends Base{
 
     {
     	if(isset($_SESSION['user'])){
-                    redirect(base_url('order/index'));
+                    redirect(base_url('order'));
                 }
             
         
@@ -29,7 +29,7 @@ class Login extends Base{
 
                 session_start();
                 $_SESSION['user']=$user;
-              	 redirect(base_url('order/index'));
+              	 redirect(base_url('order'));
 
             }else{
                $data['_view'] = 'login/index';

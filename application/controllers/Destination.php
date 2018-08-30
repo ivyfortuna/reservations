@@ -65,7 +65,10 @@ class Destination extends Base{
      * Editing a destination
      */
     function edit($id)
-    {   
+    {
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         // check if the destination exists before trying to edit it
         $data['destination'] = $this->Destination_model->get_destination($id);
         
@@ -95,6 +98,9 @@ class Destination extends Base{
      */
     function remove($id)
     {
+        if($_SESSION['user']==null ){
+            redirect('/');
+        }
         $destination = $this->Destination_model->get_destination($id);
 
         // check if the destination exists before trying to delete it

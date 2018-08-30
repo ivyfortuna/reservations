@@ -4,6 +4,7 @@ $(document).ready(function() {
     });
 });
 
+
 function refrescar_tabla(){
    
    var url=window.location.origin+"/reservations/user";
@@ -73,7 +74,7 @@ function refrescar_tabla_order(){
     }).done(function (res) {
 
 
-        $('#table').load(url+"#table");
+        $('#tabla').html(res);
 
 
     }).fail(function (jqXHR, textStatus, errorThrown) {
@@ -175,32 +176,3 @@ function enviar_form_destination(id,modal) {
 }
 
 
-
-//pagination
-
-$('#users').pagination({
-    dataSource: [1, 2, 3, 4, 5, 6, 7, 195],
-callback: function(data, pagination) {
-    // template method of yourself
-    var html = template(data);
-    dataContainer.html(html);
-}
-})
-
-$('#destinations').pagination({
-    dataSource: [1, 2, 3, 4, 5, 6, 7, 195],
-callback: function(data, pagination) {
-    // template method of yourself
-    var html = template(data);
-    dataContainer.html(html);
-}
-})
-
-$('#orders').pagination({
-    dataSource: [1, 2, 3, 4, 5, 6, 7, 195],
-callback: function(data, pagination) {
-    // template method of yourself
-    var html = template(data);
-    dataContainer.html(html);
-}
-})

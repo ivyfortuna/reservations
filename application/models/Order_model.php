@@ -33,6 +33,34 @@ class Order_model extends CI_Model
         $this->db->order_by('id', 'desc');
         return $this->db->get_where('orders', array('id_user' => $user))->result_array();
     }
+
+    function get_all_orders_sort($limit,$offset)
+    {
+        $query = $this->db->select('*')
+            ->from('orders')
+            ->limit($limit,$offset)
+            ->get();
+
+        return $query->result_array();
+    }
+    function count_all_orders(){
+       return $this->db->count_all('orders');
+    }
+    function count_all_orders_user($id_user){
+        $this->db->where('id_user',$id_user);
+        $this->db->from('orders');
+        return $this->db->count_all_results();
+    }
+    function get_all_orders_user_sort($limit,$offset,$user)
+    {
+        $query = $this->db->select('*')
+            ->from('orders')
+            ->where('id_user',$user)
+            ->limit($limit,$offset)
+            ->get();
+
+        return $query->result_array();
+    }
         
     /*
      * function to add new order
