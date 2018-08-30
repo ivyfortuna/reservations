@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-08-2018 a las 13:23:28
+-- Tiempo de generación: 30-08-2018 a las 14:43:04
 -- Versión del servidor: 10.1.34-MariaDB
 -- Versión de PHP: 7.2.8
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `reservations`
 --
-CREATE DATABASE IF NOT EXISTS `reservations` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `reservations`;
 
 -- --------------------------------------------------------
 
@@ -35,6 +33,16 @@ CREATE TABLE `destinations` (
   `name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `destinations`
+--
+
+INSERT INTO `destinations` (`id`, `name`) VALUES
+(1, 'Ljubljana'),
+(3, 'Kranj'),
+(4, 'Stenvid'),
+(5, 'Otoce');
+
 -- --------------------------------------------------------
 
 --
@@ -44,10 +52,45 @@ CREATE TABLE `destinations` (
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
   `date` date NOT NULL,
+  `time` time NOT NULL,
   `reason` varchar(255) DEFAULT NULL,
   `id_destination` int(11) NOT NULL,
+  `id_pickup_destination` int(11) DEFAULT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `orders`
+--
+
+INSERT INTO `orders` (`id`, `date`, `time`, `reason`, `id_destination`, `id_pickup_destination`, `id_user`) VALUES
+(33, '2018-08-31', '00:00:00', 'asdasdas', 3, 4, 1),
+(34, '2018-08-31', '08:00:00', 'asdasdas', 5, 5, 1),
+(35, '2018-09-06', '00:00:00', 'asdasdasd', 5, 5, 1),
+(36, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(37, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(38, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(39, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(40, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(41, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(42, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(43, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(44, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(45, '0000-00-00', '00:00:00', '', 3, 5, 1),
+(46, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(47, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(48, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(49, '0000-00-00', '00:00:00', '', 3, 5, 1),
+(50, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(51, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(52, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(53, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(54, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(55, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(56, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(57, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(58, '0000-00-00', '00:00:00', '', 5, 5, 1),
+(59, '0000-00-00', '00:00:00', '', 5, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -71,7 +114,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `password`, `role`) VALUES
 (1, 'Alja', 'alja@iskra.com', '$2y$10$BuRLU0/cEnFgaARCPJtsOOuifyIf5yczbED3plHih0maanW5W0h5S', 1),
 (2, 'Pablo', 'pablo@iskra.com', '$2y$10$UZukbK5a.CgEt62bEk.Q8equ4/PKYLijNgHTMqNud/PKXpVxgKNBW', 1),
 (3, 'Nikola', 'nikola@iskra.eu', '$2y$10$pklA63Yl7cIqvjnQF97K3ue/JSjZ4M46T6C8WV9jOQkn1x.CuPAbu', 0),
-(12, 'Adrian', 'adrian@iskra.com', '$2y$10$B4kI.qUO5t6fz4/bg7FBu.s6BvZ8HWcl4JmdBxd0MLflHr0XAwRIu', 0);
+(12, 'Adrian', 'adrian@iskra.com', '$2y$10$0evtMoFz5wmqqPgaxqAcEu/HypZ76xwslwbRyA43fb4/VE8jGL4.y', NULL);
 
 --
 -- Índices para tablas volcadas
@@ -106,19 +149,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `destinations`
 --
 ALTER TABLE `destinations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
