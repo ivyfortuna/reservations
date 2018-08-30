@@ -96,31 +96,35 @@ class Order extends Base{
         $this->email->message('Testing the email class.');
 
 
-        if(!isset($_SESSION['user'])){
+        if (!isset($_SESSION['user'])) {
             redirect('/');
         }
-        if(isset($_POST) && count($_POST) > 0)
-        {
+        if (isset($_POST) && count($_POST) > 0) {
             $params = array(
                 'date' => $this->input->post('date'),
+                'time' => $this->input->post('time'),
                 'reason' => $this->input->post('reason'),
-                'id_destination' =>$this->input->post('id_destination'),
-                'id_pickup_destination' =>$this->input->post('id_pickup_destination'),
+                'id_destination' => $this->input->post('id_destination'),
+                'id_pickup_destination' => $this->input->post('id_pickup_destination'),
                 'id_user' => $_SESSION['user']['id'],
             );
 
-            $order_id = $this->Order_model->add_order($params);
+            $test_arr = explode('-', $params('date'));
+            if (checkdate($test_arr[2], $test_arr[1], $test_arr[0])) {
+                $order_id = $this->Order_model->add_order($params);
+                echo 'ok';
+                die;
 
-            //Sending Email Only Works on server
 
-           // $this->email->send();
+                //Sending Email Only Works on server
+
+                // $this->email->send();
 
 
-            echo 'ok' ;die;
-        }
-        else
-        {
-            echo 'nok';die;
+            } else {
+                echo 'nok';
+                die;
+            }
         }
     }
 
