@@ -105,6 +105,7 @@ class Order extends Base{
                 'date' => $this->input->post('date'),
                 'reason' => $this->input->post('reason'),
                 'id_destination' =>$this->input->post('id_destination'),
+                'id_pickup_destination' =>$this->input->post('id_pickup_destination'),
                 'id_user' => $_SESSION['user']['id'],
             );
 

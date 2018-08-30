@@ -43,6 +43,7 @@
                     <th>Date</th>
                     <th>Reason</th>
                     <th>Destination</th>
+                    <th>Pick up</th>
                     <th>User</th>
                 </tr>
             </thead>
@@ -52,6 +53,9 @@
                    foreach($destination as $d){
                        if($o['id_destination']==$d['id']){
                            $des=$d['name'];
+                       }
+                       if($o['id_pickup_destination']==$d['id']) {
+                           $pic = $d['name'];
                        }
                    }
                 if(isset($o['id_user']))
@@ -68,6 +72,7 @@
                 <td><?php echo $o['date']; ?></td>
                 <td><?php echo $o['reason']; ?></td>
                 <td><?php echo $des; ?></td>
+                <td><?php echo $pic; ?></td>
                 <td><?php echo $user; ?></td>
             </tr>
             <?php  } ?>
