@@ -3,13 +3,13 @@ $(document).ready(function() {
         enviar_form('#add_modal_form','#add_user_modal');
     });
     $("#enviar").click(function () {
-        history.pushState({}, null, window.location.origin+"/reservations/order");
+        history.pushState({}, null, window.location.origin+"/prevozi/order");
     })
     $("#enviar_report").click(function () {
-        history.pushState({}, null, window.location.origin+"/reservations/report");
+        history.pushState({}, null, window.location.origin+"/prevozi/report");
     })
     $("#crear_pdf").click(function () {
-        history.pushState({}, null, window.location.origin+"/reservations/pdf");
+        history.pushState({}, null, window.location.origin+"/prevozi/pdf");
     })
 });
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 function refrescar_tabla(){
    
-   var url=window.location.origin+"/reservations/user";
+   var url=window.location.origin+"/prevozi/user";
 
     $.ajax({
         type: "GET",
@@ -37,7 +37,7 @@ function refrescar_tabla(){
 
 function enviar_form(id,modal) {
     // la id es la id del form por ejemplo #add
-    var url=window.location.origin+"/reservations/user/add";
+    var url=window.location.origin+"/prevozi/user/add";
 
     $.ajax({
         type: "POST",
@@ -75,7 +75,7 @@ $(document).ready(function() {
 
 function refrescar_tabla_order(){
 
-    var url=window.location.origin+"/reservations/order";
+    var url=window.location.origin+"/prevozi/order";
 
     $.ajax({
         type: "GET",
@@ -95,7 +95,7 @@ function refrescar_tabla_order(){
 
 function enviar_form_order(id,modal) {
     // la id es la id del form por ejemplo #add
-    var url=window.location.origin+"/reservations/order/add";
+    var url=window.location.origin+"/prevozi/order/add";
 
     $.ajax({
         type: "POST",
@@ -135,7 +135,7 @@ $(document).ready(function() {
 
 function refrescar_tabla_destination(){
 
-    var url=window.location.origin+"/reservations/destination";
+    var url=window.location.origin+"/prevozi/destination";
 
     $.ajax({
         type: "GET",
@@ -155,7 +155,7 @@ function refrescar_tabla_destination(){
 
 function enviar_form_destination(id,modal) {
     // la id es la id del form por ejemplo #add
-    var url=window.location.origin+"/reservations/destination/add";
+    var url=window.location.origin+"/prevozi/destination/add";
 
     $.ajax({
         type: "POST",
