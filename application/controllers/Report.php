@@ -10,7 +10,6 @@ class Report extends Base
     {
         parent::__construct();
         $this->load->model('Report_model');
-        $this->load->model('Order_model');
         $this->load->model('Destination_model');
         $this->load->model('User_model');
     }
@@ -61,18 +60,16 @@ class Report extends Base
             $data{'destination'}=$this->Destination_model->get_all_destinations();
             $data['users'] = $this->User_model->get_all_users();
 
-            $this->load->view('report/index', $data);
 
-            $html=$this->load->view('report/pdf',$data, true); //load the pdf.php by passing our data and get all data in $html varriable.
+            $html = $this->load->view('report/pdf',$data, true); //load the pdf.php by passing our data and get all data in $html varriable.
 
             //actually, you can pass mPDF parameter on this load() function
             $pdf = $this->m_pdf->load();
             //generate the PDF!
-            $stylesheet = '<style>'.file_get_contents('assets/css/bootstrap.min.css').'</style>';
+            $stylesheet = '<style>'.file_get_contents('assets/themes/home/css/bootstrap.css').'</style>';
             // apply external css
             $pdf->WriteHTML($stylesheet,1);
-            $pdf->WriteHTML($html,2);
-            //offer it to user via browser download! (The PDF won't be saved on your server HDD)
+            $pdf->WriteHTML($html,0);
             $pdf->Output();
             exit;
 
