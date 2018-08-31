@@ -7,7 +7,7 @@
 </div></br>
 <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1"></div>
 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10">
-
+<?=$_SESSION['month']?>
         <?php
         $last_date=0;
         $i=0;

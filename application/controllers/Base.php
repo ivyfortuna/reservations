@@ -18,8 +18,8 @@ class Base extends CI_Controller{
         $this->load->library('upload');
         $this->load->library('email');
         $this->load->library('form_validation');
+        $this->load->library('Pdf');
 
-        $this->load->library('m_pdf');
 
     }
 
