@@ -37,11 +37,6 @@
         </tr>
         </thead>
         <tbody>
-        <tr role="">
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
         <tr>
             <td><?php echo $des; ?></td>
             <td><?php echo $pick; ?></td>
