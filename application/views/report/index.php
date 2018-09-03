@@ -61,3 +61,5 @@
         ?>
 
 </div>
+
+<h3>Total reports: <?= $reportsCount ?></h3>
