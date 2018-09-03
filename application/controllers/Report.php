@@ -47,6 +47,8 @@ class Report extends Base
             redirect('report');
         } else {
             $data['reports'] = $this->Report_model->get_month_orders($_SESSION['month']);
+            $data['reportsCount'] = $this->Report_model->count_month_orders($_SESSION['month']);
+
             $data{'destination'} = $this->Destination_model->get_all_destinations();
             $data['users'] = $this->User_model->get_all_users();
 

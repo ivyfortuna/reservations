@@ -60,6 +60,5 @@
         }
         ?>
 
+    <h3>Total reports: <?= $reportsCount ?></h3>
 </div>
-
-<h3>Total reports: <?= $reportsCount ?></h3>
