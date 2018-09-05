@@ -87,7 +87,7 @@ class Order extends Base{
     function add()
     {
         //Email variables
-        $this->email->from('pablo.villargarcia@iskra.eu', 'Your Name');
+        $this->email->from('pablo.villargarcia@iskra.eu', 'Prueba');
         $this->email->to('pablo.villargarcia@iskra.eu');
         //$this->email->cc('another@another-example.com');
         //$this->email->bcc('them@their-example.com');

@@ -20,5 +20,9 @@ class Report_model extends CI_Model
         $this->db->order_by('date', 'desc');
         return $this->db->get('orders')->result_array();
     }
-
+    function count_month_orders($month){
+        $this->db->where('SUBSTRING(date,1,7)', $month);
+        $query = $this->db->get('orders');
+        return $query->num_rows();
+    }
 }
