@@ -18,6 +18,13 @@
                         $des=$d['name'];
                     }
                 }
+            if (isset($r['id_pickup_destination'])) {
+                foreach ($destination as $d) {
+                    if ($r['id_pickup_destination'] == $d['id']) {
+                        $pick = $d['name'];
+                    }
+                }
+            }
             if(isset($r['id_user']))
                 foreach($users as $u){
                     if($r['id_user']==$u['id']){
@@ -33,6 +40,7 @@
                 <thead>
                     <tr role="">
                         <th>Destination</th>
+                        <th>Pick Up</th>
                         <th>User</th>
                         <th>Reason</th>
                     </tr>
@@ -40,6 +48,7 @@
                 <tbody id=<?=$i?>>
                     <tr>
                     <td><?php echo $des; ?></td>
+                    <td><?=$pick?></td>
                     <td><?php echo $user; ?></td>
                     <td><?php echo $r['reason']; ?></td>
                     </tr>
