@@ -86,14 +86,14 @@ class Order extends Base{
      */
     function add()
     {
+
+        $destination=$this->Destination_model->get_all_destinations();
         //Email variables
         $this->email->from('pablo.villargarcia@iskra.eu', 'Prueba');
         $this->email->to('pablo.villargarcia@iskra.eu');
         //$this->email->cc('another@another-example.com');
         //$this->email->bcc('them@their-example.com');
-        //Email content
-        $this->email->subject('Email Test');
-        $this->email->message('Testing the email class.');
+
 
 
         if(!isset($_SESSION['user'])){
@@ -113,9 +113,22 @@ class Order extends Base{
 
             $order_id = $this->Order_model->add_order($params);
 
-            //Sending Email Only Works on server
+            if (isset($params['id_destination'])) {
+                foreach ($destination as $d) {
+                    if ($params['id_destination'] == $d['id']) {
+                        $des = $d['name'];
+                    }
+                    if ($params['id_pickup_destination'] == $d['id']) {
+                        $pick = $d['name'];
+                    }
+                }
+            }
 
-           // $this->email->send();
+            //Sending Email Only Works on server
+            //Email content
+            $this->email->subject('Iskra delivery');
+            $this->email->message('Date:'.$params['date'].'\n'. 'Time:'.$params['time'].'\n'.'Reason:'.$params['reason'].'\n'.'Destination:'.$des.'\n'.'Pick up:'.$pick.'\n');
+            $this->email->send();
 
 
             echo 'ok' ;die;

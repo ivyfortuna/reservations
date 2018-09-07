@@ -24,6 +24,7 @@ class Report extends Base
             redirect('/');
         }
         $month=date('Y-m');
+        $_SESSION['month']=$month;
         $data['reports'] = $this->Report_model->get_month_orders($month);
         $data['reportsCount'] = $this->Report_model->count_month_orders($month);
         if(isset($_POST)&& count($_POST) > 0) {
