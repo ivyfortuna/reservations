@@ -24,7 +24,8 @@
 
 	    <!-- JS Libs -->
 	    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js" type="text/javascript"></script>
-    	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
 	</head>
 
 	<body>
@@ -78,7 +79,10 @@
 
 
 	<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/jquery/jquery.js"></script>
-<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>
+	<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/jquery/jquery-ui.js"></script>
+	<script src="<?=base_url();?>assets/themes/dashboard/global/vendor/jquery/jquery-ui.css"></script>
+
+    <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/popper-js/umd/popper.min.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/bootstrap/bootstrap.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/animsition/animsition.js"></script>
 <script src="<?=base_url();?>assets/themes/dashboard/global/vendor/mousewheel/jquery.mousewheel.js"></script>
@@ -89,6 +93,7 @@
 
 <script src="<?=base_url();?>assets/themes/home/scripts/scripts.js"></script>
 <script src="<?=base_url();?>assets/themes/home/scripts/sortTable.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
 
 	</body>
 </html>

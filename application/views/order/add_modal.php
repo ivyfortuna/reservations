@@ -14,13 +14,13 @@
                     <div class="col-xl-12 col-md-6  form-group">
                         <label for="date" class="col-md-4 control-label">Date</label>
 
-                            <input  type="date" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control" id="date" pattern=".{1,}" />
+                            <input  type="date" name="date" value="<?php echo $this->input->post('date'); ?>" class="form-control hasDatepicker" id="date" pattern=".{1,}" required/>
 
                     </div>
                     <div class="col-xl-12 col-md-6 form-group">
                         <label for="time" class="col-md-4 control-label">Hour</label>
 
-                        <input  type="time" name="time" value="<?php echo $this->input->post('time'); ?>" class="form-control" id="time" pattern=".{1,}"  />
+                        <input  type="time" name="time" value="<?php echo $this->input->post('time'); ?>" class="form-control" id="time" pattern=".{1,}" required/>
 
                     </div>
                     <div class="col-xl-12 col-md-12 form-group">
